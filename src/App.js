@@ -18,7 +18,6 @@ function App() {
   };
 
   const addToFavorites = (eventD) => {
-    console.log("Event D: ", eventD);
     setFavorites((previousState) => {
       localStorage.setItem(
         "favorites",
@@ -44,7 +43,6 @@ function App() {
         const artistData = await axios.get(
           "https://rest.bandsintown.com/artists/" + searchText + "?app_id=123"
         );
-        console.log(artistData.data);
         setArtistInformation(artistData.data);
       } catch (err) {
         console.error(err);
@@ -58,7 +56,6 @@ function App() {
             searchText +
             "/events?app_id=123"
         );
-        console.log(eventData.data);
         setEventInformation(eventData.data);
       } catch (err) {
         console.error(err);
