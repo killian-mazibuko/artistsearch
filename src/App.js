@@ -74,7 +74,7 @@ function App() {
       <Jumbotron style={{ "background-color": "light-blue" }}>
         <div className="row">
           <div className="col-12">
-            <h1>Artist Search</h1>
+            <h1 style={{ margin: "auto", width: "50%" }}>Artist Search</h1>
           </div>
         </div>
       </Jumbotron>
