@@ -21,16 +21,22 @@ function App() {
   const addToFavorites = (eventD) => {
     console.log("Event D: ", eventD);
     setFavorites((previousState) => {
+      localStorage.setItem(
+        "favorites",
+        JSON.stringify([...previousState, eventD])
+      );
       return [...previousState, eventD];
     });
-    localStorage.setItem(favorites, JSON.stringify(favorites));
   };
 
   const removeFavorite = (eventD) => {
     setFavorites((previousState) => {
+      localStorage.setItem(
+        "favorites",
+        JSON.stringify(previousState.filter((fav) => fav.id != eventD.id))
+      );
       return previousState.filter((fav) => fav.id != eventD.id);
     });
-    localStorage.setItem(favorites, JSON.stringify(favorites));
   };
 
   useEffect(() => {
@@ -64,8 +70,8 @@ function App() {
   }, [searchText]);
 
   useEffect(() => {
-    if (localStorage.getItem(favorites)) {
-      setFavorites(JSON.parse(localStorage.getItem(favorites)));
+    if (localStorage.getItem("favorites")) {
+      setFavorites(JSON.parse(localStorage.getItem("favorites")));
     }
   }, []);
 
