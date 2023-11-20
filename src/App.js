@@ -1,6 +1,5 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import { Jumbotron } from "reactstrap";
 import ArtistSearch from "./components/ArtistSearch";
 import ArtistInfo from "./components/ArtistInfo";
 import EventDetails from "./components/EventDetails";
@@ -33,9 +32,9 @@ function App() {
     setFavorites((previousState) => {
       localStorage.setItem(
         "favorites",
-        JSON.stringify(previousState.filter((fav) => fav.id != eventD.id))
+        JSON.stringify(previousState.filter((fav) => fav.id !== eventD.id))
       );
-      return previousState.filter((fav) => fav.id != eventD.id);
+      return previousState.filter((fav) => fav.id !== eventD.id);
     });
   };
 
@@ -77,13 +76,13 @@ function App() {
 
   return (
     <div className="container">
-      <Jumbotron style={{ "background-color": "light-blue" }}>
+      <div className="jumbotron" style={{ "background-color": "light-blue" }}>
         <div className="row">
           <div className="col-12">
             <h1 style={{ margin: "auto", width: "50%" }}>Artist Search</h1>
           </div>
         </div>
-      </Jumbotron>
+      </div>
       <div className="row">
         <div className="col-4">
           <ArtistSearch updateText={updateText} />

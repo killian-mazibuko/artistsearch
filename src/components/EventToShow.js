@@ -7,8 +7,7 @@ export default function EventToShow(props) {
     setEventData(
       props.eventInfo.filter((eventData, index) => index === props.idx)[0]
     );
-    console.log(eventData);
-  }, [props.idx]);
+  }, [props.idx, props.eventInfo]);
   const addFavClickHandler = (e) => {
     props.addToFavorites(eventData);
   };
